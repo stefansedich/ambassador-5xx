@@ -1,0 +1,17 @@
+apiVersion: getambassador.io/v1
+kind: KubernetesEndpointResolver
+metadata:
+  name: endpoint
+---
+apiVersion: getambassador.io/v1
+kind: Module
+metadata:
+  name: ambassador
+spec:
+  config:
+    resolver: endpoint
+    load_balancer:
+      policy: round_robin
+    retry_policy:
+      retry_on: gateway-error
+      num_retries: 3
