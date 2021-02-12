@@ -38,3 +38,13 @@ spec:
               # Introduce a delay to the shutdown sequence
               # to wait for the pod eviction event to propagate.
               command: ["/bin/sleep", "5"]
+---
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: flask
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: flask
