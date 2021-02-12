@@ -37,7 +37,7 @@ spec:
             exec:
               # Introduce a delay to the shutdown sequence
               # to wait for the pod eviction event to propagate.
-              command: ["/bin/sleep", "5"]
+              command: ["/bin/sleep", "30"]
 ---
 apiVersion: policy/v1beta1
 kind: PodDisruptionBudget
